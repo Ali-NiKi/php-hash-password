@@ -1,0 +1,26 @@
+<?php
+class hash{
+    private $pass;
+    private $hash;
+    private $hash1;
+    private $result;
+    private $res1 ;
+    private $res2 ;
+    private $res3 ;
+    private $res4 ;
+    private $res5 ;
+    private $res6 ;
+    public function hashPass($pass){
+        $this->pass = strtoupper($pass);
+        $this->hash = md5($this->pass);
+        $this->hash1 = 'a5a'.hash('tiger160,3', $this->hash).'6f67c';
+        $this->res = strtoupper($this->hash1);
+        $this->res1 = str_replace('A','E',$this->res);
+        $this->res2 = str_replace('D','F',$this->res1);
+        $this->res3 = str_replace('8','7',$this->res2);
+        $this->res4 = str_replace('9','C',$this->res3);
+        $this->res5 = str_replace('5','B',$this->res4);
+        $this->result = $this->res5;
+        return$this->result;
+    }
+  }
